@@ -1,0 +1,2 @@
+deploy:
+	./dot/install.sh
