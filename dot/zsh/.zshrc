@@ -9,6 +9,9 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 ### starship
 eval "$(starship init zsh)"
 
+### Load basic config
+source "$HOME/.zsh/basic.zsh"
+
 ### Load key bindings
 source "$HOME/.zsh/keybindings.zsh"
 
@@ -17,3 +20,4 @@ source "$HOME/.zsh/plugins.zsh"
 
 ### Load alias
 source "$HOME/.zsh/alias.zsh"
+
