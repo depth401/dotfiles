@@ -23,3 +23,4 @@ zinit light-mode for \
 
 zinit light zsh-users/zsh-autosuggestions
 zinit load zdharma/fast-syntax-highlighting
+zinit load agkozak/zsh-z
