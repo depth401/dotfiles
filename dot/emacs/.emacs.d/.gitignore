@@ -1,6 +1,7 @@
 # -*- mode: gitignore; -*-
 *~
 .cache/
+eln-cache/
 
 elpa/
 el-get/
