@@ -23,3 +23,7 @@ shell:
     - -l
     - -c
     - "source ~/.zshrc; tmux attach 2> /dev/null || tmux"
+
+key_bindings:
+ - { key: F, mods: Alt, chars: "\x1bf" }
+
