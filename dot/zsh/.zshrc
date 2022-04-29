@@ -1,14 +1,20 @@
 typeset -U path PATH
 path=(
+  # homebrew
   /opt/homebrew/bin(N-/)
   /opt/homebrew/sbin(N-/)
+  # unix
   /usr/bin
   /usr/sbin
   /bin
   /sbin
   /usr/local/bin(N-/)
   /usr/local/sbin(N-/)
-  /Library/Apple/usr/bin
+  # macOS
+  /Library/Apple/usr/bin(N-/)
+  # rbenv
+  $HOME/.rbenv/bin(N-/)
+  $HOME/.rbenv/shims(N-/)
 )
 
 source $HOME/.cargo/env
@@ -33,4 +39,3 @@ source "$HOME/.zsh/plugins.zsh"
 
 ### Load alias
 source "$HOME/.zsh/alias.zsh"
-
