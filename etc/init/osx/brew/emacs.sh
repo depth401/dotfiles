@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# see: https://github.com/d12frosted/homebrew-emacs-plus/issues/378#issuecomment-965125537
+
+alias pbd=/usr/libexec/PlistBuddy
+export emacsapp=`brew --prefix --installed emacs-head@29`/Emacs.app
+export infoplist="${emacsapp}/Contents/Info.plist"
+
+pbd -c "Add :LSEnvironment dict" "${infoplist}"
+pbd -c "Add :LSEnvironment:PATH string" "${infoplist}"
+pbd -c "Set :LSEnvironment:PATH $(echo "$PATH")" "${infoplist}"
+pbd -c "Print :LSEnvironment" "${infoplist}"
+touch ${emacsapp}
