@@ -774,40 +774,40 @@
       :global-minor-mode global-git-gutter-mode)
     #+end_src
 
-*** LSP
+** LSP
 
-    #+begin_src emacs-lisp
-    (leaf lsp-mode
-      :ensure t
-      :pre-setq ((lsp-keymap-prefix . "M-l")
-                 (lsp-idle-delay . 0.5)
-                 (lsp-log-io . nil)
-                 (lsp-completion-provider . :none))
-      :custom ((lsp-document-sync-method lsp--sync-incremental)))
-    #+end_src
+   #+begin_src emacs-lisp
+   (leaf lsp-mode
+     :ensure t
+     :pre-setq ((lsp-keymap-prefix . "M-l")
+                (lsp-idle-delay . 0.5)
+                (lsp-log-io . nil)
+                (lsp-completion-provider . :none))
+     :custom ((lsp-document-sync-method lsp--sync-incremental)))
+   #+end_src
 
-    #+begin_src emacs-lisp
-    (leaf lsp-ui
-      :ensure t)
-    #+end_src
+   #+begin_src emacs-lisp
+   (leaf lsp-ui
+     :ensure t)
+   #+end_src
 
-*** jump
+** jump
 
-    #+begin_src emacs-lisp
-    (leaf dumb-jump
-      :ensure t
-      :config
+   #+begin_src emacs-lisp
+   (leaf dumb-jump
+     :ensure t
+     :config
 
-      (defhydra dumb-jump-hydra (:color blue :columns 3)
-        "Dumb Jump"
-        ("j" dumb-jump-go "Go")
-        ("o" dumb-jump-go-other-window "Other window")
-        ("e" dumb-jump-go-prefer-external "Go external")
-        ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
-        ("i" dumb-jump-go-prompt "Prompt")
-        ("l" dumb-jump-quick-look "Quick look")
-        ("b" dumb-jump-back "Back")))
-    #+end_src
+     (defhydra dumb-jump-hydra (:color blue :columns 3)
+       "Dumb Jump"
+       ("j" dumb-jump-go "Go")
+       ("o" dumb-jump-go-other-window "Other window")
+       ("e" dumb-jump-go-prefer-external "Go external")
+       ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
+       ("i" dumb-jump-go-prompt "Prompt")
+       ("l" dumb-jump-quick-look "Quick look")
+       ("b" dumb-jump-back "Back")))
+   #+end_src
 
 ** Languages
 
@@ -840,7 +840,9 @@
     (leaf typescript-mode
       ;; :ensure t
       :el-get emacs-typescript/typescript.el
-      :custom ((typescript-indent-level . 2)))
+      :mode ("\\.ts?\\'" "\\.tsx?\\'")
+      :custom ((indent-tabs-mode . nil)
+               (typescript-indent-level . 2)))
     #+end_src
 
 *** Elm
@@ -853,6 +855,13 @@
                                 (push '("<|" . ?◁) prettify-symbols-alist)
                                 (push '("->" . ?→) prettify-symbols-alist)))))
     #+end_src
+
+* Writing
+
+  #+begin_src elisp
+    (leaf writeroom-mode
+      :ensure t)
+  #+end_src
 
 * Custom Key Bindings
 
